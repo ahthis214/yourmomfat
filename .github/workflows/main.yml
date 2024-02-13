@@ -7,14 +7,14 @@ on:
         description: 'ngrok auth token'
         required: true
       link_iso:
-        description: 'dán link iso của ae vô đây'
+        description: 'where ur fucking iso'
         required: true
  
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: chuẩn bị phần mềm
+      - name: qemu fucking install process
         run: |
           sudo apt update -y
           sudo apt install curl wget qemu-kvm cpulimit -y
@@ -23,7 +23,7 @@ jobs:
           chmod +x ngrok
           ./ngrok config add-authtoken "${{ github.event.inputs.ngrok }}"
           nohup ./ngrok tcp --region ap 5900 &>/dev/null &
-      - name: cài win và khởi chạy
+      - name: run
         run: |
           sudo chmod 666 /dev/kvm
           sudo qemu-img create -f qcow2 /mnt/a.qcow2 60G
